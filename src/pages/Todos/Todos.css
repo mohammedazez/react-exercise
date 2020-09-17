@@ -8,12 +8,15 @@ body {
   margin: 40px auto;
 } */
 
-/* Untuk Judul */
 .judul {
   font-family: "Baloo Tamma", cursive;
 }
 
-/* End Untuk Judul */
+.daftar {
+  color: black;
+  font-family: "Baloo Tamma", cursive;
+  font-size: 60px;
+}
 
 #to-do-form input {
   background-color: rgba(27, 112, 137, 1);
