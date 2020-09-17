@@ -3,28 +3,25 @@ import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import "./RegisterForm.css";
 
 function FormsPage() {
-  const [data, setData] = useState("");
-  // state = {
-  //   fname: "Muhamad",
-  //   lname: "Otto",
-  //   email: "",
-  //   city: "",
-  //   state: "",
-  //   zip: "",
-  // };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [birthday, setBirthday] = useState("");
 
   const submitHandler = (event) => {
     event.preventDefault();
-    event.target.className += " was-validated";
+    console.log({ name, email, password, address, birthday });
+    // event.target.className += " was-validated";
   };
   // submitHandler = (event) => {
   //   event.preventDefault();
   //   event.target.className += " was-validated";
   // };
 
-  const changeHandler = (event) => {
-    setData(event.target.value);
-  };
+  // const changeHandler = (event) => {
+  //   setData(event.target.value);
+  // };
 
   // changeHandler = (event) => {
   //   this.setState({ [event.target.name]: event.target.value });
@@ -42,8 +39,9 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.fname}
-                name="fname"
-                onChange={changeHandler}
+                // name="fname"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
                 type="text"
                 id="defaultFormRegisterNameEx"
                 className="form-control"
@@ -61,8 +59,9 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.lname}
-                name="lname"
-                onChange={changeHandler}
+                // name="lname"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 type="text"
                 id="defaultFormRegisterEmailEx2"
                 className="form-control"
@@ -80,7 +79,9 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.email}
-                onChange={changeHandler}
+                // onChange={changeHandler}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 type="email"
                 id="defaultFormRegisterConfirmEx3"
                 className="form-control"
@@ -102,7 +103,9 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.city}
-                onChange={changeHandler}
+                // onChange={changeHandler}
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
@@ -124,7 +127,9 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.state}
-                onChange={changeHandler}
+                // onChange={changeHandler}
+                value={birthday}
+                onChange={(event) => setBirthday(event.target.value)}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
@@ -146,12 +151,12 @@ function FormsPage() {
               </label>
               <input
                 // value={this.state.zip}
-                onChange={changeHandler}
+                // onChange={changeHandler}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
                 name="zip"
-                placeholder="Zip"
+                placeholder="Nationality"
                 required
               />
               <div className="invalid-feedback">
