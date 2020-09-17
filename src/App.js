@@ -3,10 +3,10 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Page
-import RegisterForm from "./pages/RegisterForm";
-import BMI from "./pages/BMI";
-import Uppercase from "./pages/Uppercase";
-import Todos from "./pages/Todos";
+import RegisterForm from "./pages/Registerform/RegisterForm";
+import BMI from "./pages/BMI/BMI";
+import Uppercase from "./pages/Uppercase/Uppercase";
+import Todos from "./pages/Todos/Todos";
 
 // Component
 import Header from "./components/Header";
