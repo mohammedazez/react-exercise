@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import Swal from "sweetalert2";
 import "./RegisterForm.css";
 
 function FormsPage() {
@@ -8,24 +9,60 @@ function FormsPage() {
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [nationality, setNationality] = useState("");
+  const [gender, setGender] = useState("");
+  const [skill, setSkill] = useState("");
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log({ name, email, password, address, birthday });
-    // event.target.className += " was-validated";
+    console.log({
+      name,
+      email,
+      password,
+      address,
+      birthday,
+      nationality,
+      gender,
+      skill,
+    });
+    const isValid = formValidation();
   };
-  // submitHandler = (event) => {
-  //   event.preventDefault();
-  //   event.target.className += " was-validated";
-  // };
 
-  // const changeHandler = (event) => {
-  //   setData(event.target.value);
-  // };
-
-  // changeHandler = (event) => {
-  //   this.setState({ [event.target.name]: event.target.value });
-  // };
+  const formValidation = () => {
+    let isValid = true;
+    if (name.trim().length > 6) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Terimakasih anda sudah mendaftar",
+        showConfirmButton: true,
+      });
+      isValid = false;
+      return isValid;
+    } else if (email.trim().length < 5) {
+      Swal.fire("Email Kurang lengkap");
+      isValid = false;
+      return isValid;
+    } else if (password.trim().length > 5) {
+      Swal.fire("Password Kurang lengkap");
+      isValid = false;
+      return isValid;
+    } else if (address.trim().length > 5) {
+      Swal.fire("alamat Kurang lengkap");
+      isValid = false;
+      return isValid;
+    } else if (birthday.trim().length > 5) {
+      Swal.fire("tanggal lahir Kurang lengkap");
+      isValid = false;
+      return isValid;
+    } else if (nationality.trim().length > 5) {
+      Swal.fire("negara kebangsaaan Kurang lengkap");
+      isValid = false;
+      return isValid;
+    } else {
+      Swal.fire("Mohon isi dulu yang lengkap yaaaa");
+    }
+  };
 
   return (
     <div className="container-utama">
@@ -152,6 +189,8 @@ function FormsPage() {
               <input
                 // value={this.state.zip}
                 // onChange={changeHandler}
+                value={nationality}
+                onChange={(event) => setNationality(event.target.value)}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
@@ -170,10 +209,13 @@ function FormsPage() {
                 className="grey-text"
               >
                 Skills
-                <select>
-                  <option>Coding</option>
-                  <option>Design</option>
-                  <option>gaming</option>
+                <select
+                  value={skill}
+                  onChange={(event) => setSkill(event.target.value)}
+                >
+                  <option value="coding">Coding</option>
+                  <option value="design">Design</option>
+                  <option value="gaming">gaming</option>
                 </select>
               </label>
             </MDBCol>
@@ -183,9 +225,12 @@ function FormsPage() {
                 className="grey-text"
               >
                 Gender
-                <select>
-                  <option>Male</option>
-                  <option>Female</option>
+                <select
+                  value={gender}
+                  onChange={(event) => setGender(event.target.value)}
+                >
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
                 </select>
               </label>
             </MDBCol>
