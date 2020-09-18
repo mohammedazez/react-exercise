@@ -48,6 +48,16 @@ class NavbarPage extends Component {
                 Todos
               </MDBNavLink>
             </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="black-text" to="/counter">
+                Counter
+              </MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem>
+              <MDBNavLink className="black-text" to="/listproduct">
+                List Product
+              </MDBNavLink>
+            </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
